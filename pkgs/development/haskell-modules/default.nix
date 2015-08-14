@@ -60,7 +60,7 @@ let
 
         ghc = ghc // { withPackages = self.ghcWithPackages; };
 
-      };
+      } // import ./other-packages.nix { inherit pkgs stdenv callPackage; } self;
 
   commonConfiguration = import ./configuration-common.nix { inherit pkgs; };
 
