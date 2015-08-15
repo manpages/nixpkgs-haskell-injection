@@ -2852,6 +2852,8 @@ let
 
   rkflashtool = callPackage ../tools/misc/rkflashtool { };
 
+  rkrlv2 = callPackage ../applications/audio/rkrlv2 {};
+
   rmlint = callPackage ../tools/misc/rmlint {
     inherit (pythonPackages) sphinx;
   };
