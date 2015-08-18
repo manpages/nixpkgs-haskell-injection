@@ -8,7 +8,7 @@
 , neededNatives ? [pkgs.python] ++ stdenv.lib.optionals stdenv.isLinux [ pkgs.utillinux ]
 
   # Attribute set of generated packages
-, generated ? pkgs.callPackage ./node-packages-generated.nix { inherit self; }
+, generated ? pkgs.callPackage ./node-packages-other-generated.nix { inherit self; }
 
   # Attribute set of overrides
 , overrides ? {}

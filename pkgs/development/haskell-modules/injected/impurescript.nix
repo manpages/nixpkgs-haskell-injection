@@ -10,7 +10,7 @@
       let binNode = with pkgs.nodePackages; [
         bower
         grunt-cli
-        gulp
+        pulp
       ] ++ [ pkgs.nodejs pkgs.git ];
       in
 
