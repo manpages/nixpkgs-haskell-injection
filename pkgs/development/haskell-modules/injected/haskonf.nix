@@ -1,5 +1,5 @@
 { mkDerivation, base, directory, extensible-exceptions, filepath
-, process, stdenv, time, unix, src ? ./., fetchurl
+, process, stdenv, time, unix, src ? ./., fetchurl, FindBin
 }:
 mkDerivation {
   pname = "haskonf";
@@ -9,7 +9,7 @@ mkDerivation {
   isLibrary = true;
   isExecutable = true;
   buildDepends = [
-    base directory extensible-exceptions filepath process time unix
+    base directory extensible-exceptions filepath process time unix FindBin
   ];
   description = "Reflective configuration library";
   license = stdenv.lib.licenses.bsd2;
