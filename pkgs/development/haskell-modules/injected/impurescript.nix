@@ -17,7 +17,9 @@
      mkDerivation {
        pname = "purescript";
        preBuild = "export HOME=/tmp";
-       version = "0.7.3.0";
+       version = "0.7.4.1";
+       src = fetchurl { url    = "https://github.com/purescript/purescript/archive/v0.7.4.1.tar.gz";
+                        sha256 = "54ff8c5a3cc1cf982d631cffde11f9401a73d6e6102423011523b60f3edefdfc"; };
        sha256 = "27d9e4bd3061a2b64e10d4d7c140b2debd786772309aa36e0b7fdaa49b42b5c0";
        isLibrary = true;
        isExecutable = true;
