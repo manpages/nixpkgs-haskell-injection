@@ -3,7 +3,11 @@
 , freetype, fontconfig, file, alsaLib, nspr, nss, libnotify
 , yasm, mesa, sqlite, unzip, makeWrapper, pysqlite
 , hunspell, libevent, libstartup_notification, libvpx
+<<<<<<< HEAD
 , cairo, gstreamer, gst_plugins_base, icu, libpng, jemalloc
+=======
+, cairo, gstreamer, gst_plugins_base, icu, libpng, jemalloc, libpulseaudio
+>>>>>>> e69a162ceda87e57ff73b58d67992d094e9739c4
 , enableGTK3 ? false
 , debugBuild ? false
 , # If you want the resulting program to call itself "Firefox" instead
@@ -16,14 +20,14 @@
 
 assert stdenv.cc ? libc && stdenv.cc.libc != null;
 
-let version = "40.0.2"; in
+let version = "40.0.3"; in
 
 stdenv.mkDerivation rec {
   name = "firefox-${version}";
 
   src = fetchurl {
     url = "http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/${version}/source/firefox-${version}.source.tar.bz2";
-    sha1 = "b5d79fa3684284bfeb7277e99c756b8688e8121d";
+    sha1 = "6ddda46bd6540ab3ae932fbb5ffec8e9a85cab13";
   };
 
   buildInputs =
@@ -33,9 +37,15 @@ stdenv.mkDerivation rec {
       alsaLib nspr nss libnotify xlibs.pixman yasm mesa
       xlibs.libXScrnSaver xlibs.scrnsaverproto pysqlite
       xlibs.libXext xlibs.xextproto sqlite unzip makeWrapper
+<<<<<<< HEAD
       hunspell libevent libstartup_notification libvpx cairo
       gstreamer gst_plugins_base icu libpng
       jemalloc
+=======
+      hunspell libevent libstartup_notification libvpx /* cairo */
+      gstreamer gst_plugins_base icu libpng jemalloc
+      libpulseaudio # only headers are needed
+>>>>>>> e69a162ceda87e57ff73b58d67992d094e9739c4
     ]
     ++ lib.optional enableGTK3 gtk3;
 
@@ -55,7 +65,11 @@ stdenv.mkDerivation rec {
       "--enable-system-hunspell"
       "--enable-system-pixman"
       "--enable-system-sqlite"
+<<<<<<< HEAD
       "--enable-system-cairo"
+=======
+      #"--enable-system-cairo"
+>>>>>>> e69a162ceda87e57ff73b58d67992d094e9739c4
       "--enable-gstreamer"
       "--enable-startup-notification"
       "--enable-content-sandbox"            # available since 26.0, but not much info available
@@ -65,7 +79,6 @@ stdenv.mkDerivation rec {
       "--disable-necko-wifi" # maybe we want to enable this at some point
       "--disable-installer"
       "--disable-updater"
-      "--disable-pulseaudio"
       "--enable-jemalloc"
     ]
     ++ lib.optional enableGTK3 "--enable-default-toolkit=cairo-gtk3"

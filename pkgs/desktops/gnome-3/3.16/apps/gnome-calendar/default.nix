@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     pkgconfig gtk3 wrapGAppsHook intltool evolution_data_server
-    sqlite libxml2 libsoup glib
+    sqlite libxml2 libsoup glib gnome3.defaultIconTheme
   ];
 
   meta = with stdenv.lib; {

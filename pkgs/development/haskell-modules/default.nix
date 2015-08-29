@@ -65,6 +65,14 @@ let
             packages = selectFrom self;
             hoogle = callPackage ./hoogle.nix { inherit packages; };
           in withPackages (packages ++ [ hoogle ]);
+<<<<<<< HEAD
+=======
+
+        ghc = ghc // {
+          withPackages = self.ghcWithPackages;
+          withHoogle = self.ghcWithHoogle;
+        };
+>>>>>>> e69a162ceda87e57ff73b58d67992d094e9739c4
 
         ghc = ghc // {
           withPackages = self.ghcWithPackages;

@@ -23,6 +23,10 @@ in
 
     programs.xfs_quota = {
       projects = mkOption {
+<<<<<<< HEAD
+=======
+        default = {};
+>>>>>>> e69a162ceda87e57ff73b58d67992d094e9739c4
         type = types.attrsOf (types.submodule {
           options = {
             id = mkOption {
@@ -95,7 +99,11 @@ in
         wantedBy = [ "multi-user.target" ];
         after = [ ((replaceChars [ "/" ] [ "-" ] opts.fileSystem) + ".mount") ];
 
+<<<<<<< HEAD
         restartTriggers = [ (pkgs.writeText "xfs_quota-project-trigger-${name}" (builtins.toJSON opts)) ];
+=======
+        restartTriggers = [ config.environment.etc.projects.source ];
+>>>>>>> e69a162ceda87e57ff73b58d67992d094e9739c4
 
         serviceConfig = {
           Type = "oneshot";
